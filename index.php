@@ -3,7 +3,7 @@ $serverName = "freqcy.database.windows.net";
 $connectionOptions = array(
     "Database" => "freqcy",
     "Uid" => "mubek",
-    "PWD" => "Lubieplacki123"
+    "PWD" => "Lubieplacki13"
 );
 //Establishes the connection
 $conn = sqlsrv_connect($serverName, $connectionOptions);
