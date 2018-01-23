@@ -1,22 +1,8 @@
 <?php
-$serverName = "freqcy.database.windows.net";
-$connectionOptions = array(
-    "Database" => "freqcy",
-    "Uid" => "mubek",
-    "PWD" => "Lubieplacki13"
-);
-//Establishes the connection
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-$tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-        FROM [SalesLT].[ProductCategory] pc
-        JOIN [SalesLT].[Product] p
-     ON pc.productcategoryid = p.productcategoryid";
-$getResults= sqlsrv_query($conn, $tsql);
-echo ("Reading data from table" . PHP_EOL);
-if ($getResults == FALSE)
-    echo (sqlsrv_errors());
-while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
- echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+$link = mysql_connect('freqcy.database.windows.net:1433', 'mubek', 'Zeromskiego26');
+if (!$link) {
+    die('Could not connect: ' . mysql_error());
 }
-sqlsrv_free_stmt($getResults);
+echo 'Connected successfully';
+mysql_close($link);
 ?>
